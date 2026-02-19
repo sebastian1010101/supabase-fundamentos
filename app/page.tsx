@@ -120,15 +120,15 @@ export default function Home() {
               isLiked: !post.isLiked,
               likes: post.isLiked ? post.likes - 1 : post.likes + 1,
             }
-          : post
-      )
+          : post,
+      ),
     );
   };
 
   useEffect(() => {
     const fetchPosts = async () => {
       const { data, error } = await supabase
-        .from("posts_new")
+        .from("post_new")
         .select("*")
         .order("created_at", { ascending: false });
 
